@@ -1,0 +1,81 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Delegates_and_Events
+{
+    public delegate void MoreThan5EventHandler(object sender, MoreThan5EventArgs e);
+    //
+    public class MoreThan5EventArgs : EventArgs
+    {
+        public readonly int MAXNUMBER = 5;
+    }
+
+    public class Counter
+    {
+        public event EventHandler MoreThan5;
+        private MoreThan5EventArgs eventArg = new MoreThan5EventArgs();
+        public int Number = 0;
+
+        protected virtual void OnCounterReached5(EventArgs e)
+        {
+            EventHandler handler = MoreThan5;
+            handler?.Invoke(this, e);
+        }
+
+        public void Add()
+        {
+            Number++;
+            if(Number > 5)
+            {
+                OnCounterReached5(eventArg);
+            }
+        }
+
+        public void ResetCounter(Object sender, EventArgs e)
+        {
+            Number = 0;
+        }
+    }
+
+    public partial class Form1 : Form
+    {
+        Random Random = new Random();
+        string ButtonText = "Button";
+        Counter counter = new Counter();
+        
+
+        public void ChangeBackground(Object sender, EventArgs e)
+        {
+            int red = Random.Next(255);
+            int green = Random.Next(255);
+            int blue = Random.Next(255);
+            this.BackColor = Color.FromArgb(red, green, blue);
+        }
+        
+        public Form1()
+        {
+            InitializeComponent();
+            counter.MoreThan5 += ChangeBackground;
+            counter.MoreThan5 += counter.ResetCounter;
+            button1.Text = ButtonText + counter.Number;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            counter.Add();
+            int red = Random.Next(255);
+            int green = Random.Next(255);
+            int blue = Random.Next(255);
+            Button Button = (Button)sender;
+            Button.Text = ButtonText + counter.Number;
+            Button.BackColor = Color.FromArgb(red, green, blue);
+        }
+    }
+}
