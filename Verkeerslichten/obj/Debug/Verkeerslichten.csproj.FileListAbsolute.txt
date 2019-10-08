@@ -1,0 +1,7 @@
+C:\Users\i7PC\source\repos\Delegates and Events\Verkeerslichten\obj\Debug\Verkeerslichten.csprojAssemblyReference.cache
+C:\Users\i7PC\source\repos\Delegates and Events\Verkeerslichten\obj\Debug\Verkeerslichten.csproj.CoreCompileInputs.cache
+C:\Users\i7PC\source\repos\Delegates and Events\Verkeerslichten\bin\Debug\Verkeerslichten.exe.config
+C:\Users\i7PC\source\repos\Delegates and Events\Verkeerslichten\bin\Debug\Verkeerslichten.exe
+C:\Users\i7PC\source\repos\Delegates and Events\Verkeerslichten\bin\Debug\Verkeerslichten.pdb
+C:\Users\i7PC\source\repos\Delegates and Events\Verkeerslichten\obj\Debug\Verkeerslichten.exe
+C:\Users\i7PC\source\repos\Delegates and Events\Verkeerslichten\obj\Debug\Verkeerslichten.pdb
